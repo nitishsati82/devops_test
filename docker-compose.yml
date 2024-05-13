@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  faas_utility_app:
+    container_name: faas-utility-service
+    restart: always
+    ports:
+      - 9090:8080
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: faas_utility_app:TAG_NAME
+    environment:
+      - SPRING_PROFILES_ACTIVE=PROFILE_NAME
+    network_mode: bridge
